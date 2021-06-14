@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from'axios'
 
 function App() {
+  const onButtonClick = async() => {
+    const { qr } = await axios.post('https://us-central1-project-1-aad15.cloudfunctions.net/shop_create_invoice', {
+      price: 5000, 
+      description: 'blah blah',
+      name: 'blah blah'
+    })
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +17,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={ onButtonClick }>click me!</button>
       </header>
     </div>
   );

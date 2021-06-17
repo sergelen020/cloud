@@ -19,10 +19,9 @@ function App() {
     setQrImage(qr)
 
     firestore.doc(`invoices/${ invoiceId }`).onSnapshot((doc) => {
-      console.log('snapshot')
+      console.log("snap")
+      console.log(doc.name)
     })
-
-    console.log(qr)
   }
   return (
     <div className="App">
@@ -34,7 +33,7 @@ function App() {
         <button onClick={ onButtonClick }>click me!</button>
       </header>
     </div>
-  );
+  )
 }
 
 export default App;
